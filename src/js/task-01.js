@@ -12,7 +12,7 @@ console.log(`Category: ${firstTitleEl}`);
 const allItemChildinFirstItem = firstItemEl.querySelectorAll("li").length;
 console.log(`Elements: ${allItemChildinFirstItem}`);
 
-// знаходжу першу категорію (Products)
+// знаходжу другу категорію (Products)
 const secondItemEl = firstItemEl.nextElementSibling;
 const secondTitleEl = secondItemEl.querySelector("h2").textContent;
 console.log(`Category: ${secondTitleEl}`);
@@ -21,7 +21,7 @@ console.log(`Category: ${secondTitleEl}`);
 const allItemChildinSecondItem = secondItemEl.querySelectorAll("li").length;
 console.log(`Elements: ${allItemChildinSecondItem}`);
 
-// знаходжу першу категорію (Technologies)
+// знаходжу третю категорію (Technologies)
 const lastItemEl = listEl.lastElementChild;
 const lastTitleEl = lastItemEl.querySelector("h2").textContent;
 console.log(`Category: ${lastTitleEl}`);
