@@ -2,22 +2,19 @@ const refs = {
   form: document.querySelector(".login-form"),
 };
 
-refs.form.addEventListener("submit", onSubmitForm);
+refs.form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-function onSubmitForm(event) {
-  event.preventDefault();
+  const input = e.target.elements;
 
-  const {
-    elements: { email, password },
-  } = event.currentTarget;
-  if (email.value === "" || password.value === "") {
-    alert("Заповніть всі поля");
+  if (!input.email.value || !input.password.value) {
+    alert("Всі поля мають бути заповненні!");
   } else {
-    const userForm = {
-      email: email.value,
-      password: password.value,
+    const userObj = {
+      email: input.email.value,
+      password: input.password.value,
     };
-    console.log(userForm);
-    event.currentTarget.reset();
+    refs.form.reset();
+    console.log(userObj);
   }
-}
+});

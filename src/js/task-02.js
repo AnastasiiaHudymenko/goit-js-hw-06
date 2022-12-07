@@ -14,7 +14,7 @@ const listEl = document.querySelector("#ingredients");
 // ---------- Перший варіант створюємо в функції ------------
 
 function creatItem(elements) {
-  return ingredients.map((element) => {
+  return elements.map((element) => {
     const item = document.createElement("li");
     item.textContent = element;
     item.classList.add("item");
