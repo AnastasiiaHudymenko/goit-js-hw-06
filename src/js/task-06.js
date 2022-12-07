@@ -1,13 +1,20 @@
 const inputRef = document.querySelector("#validation-input");
 
-inputRef.addEventListener("blur", (event) => {
-  const valueInput = (inputRef.textContent = event.currentTarget.value);
-
-  if (valueInput.length === Number(inputRef.getAttribute("data-length"))) {
-    inputRef.classList.add("valid");
-    inputRef.classList.replace("invalid", "valid");
+inputRef.addEventListener("blur", (e) => {
+  if (Number(e.target.dataset.length) === e.target.value.length) {
+    addOrRemoveClassList("valid", "invalid");
+  } else if (!e.target.value.length) {
+    removeAllClassList("invalid", "valid");
   } else {
-    inputRef.classList.add("invalid");
-    inputRef.classList.replace("valid", "invalid");
+    addOrRemoveClassList("invalid", "valid");
   }
 });
+
+function addOrRemoveClassList(add, remove) {
+  inputRef.classList.add(add);
+  inputRef.classList.remove(remove);
+}
+
+function removeAllClassList(class1, class2) {
+  inputRef.classList.remove(class1, class2);
+}
